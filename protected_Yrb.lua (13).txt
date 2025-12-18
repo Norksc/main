@@ -1,0 +1,161 @@
+--[[DRK-VM 5.1 DEV BUILD:aaf8649e22d69eee]]
+do
+--[[DRK 5.1 DEV_MODE BUILD:6EB99221CB68DFD9 CRC:C3BA21E2 LEN:970]]
+local _waioghahf=warn or print or function()end
+_waioghahf('[DRK] Starting decryption...')
+local _judfqoe=_G or getfenv()or{}
+local _waokeuh1,_tozadwo2,_upoyrmbr3,_dgabvce4=string.byte,string.char,table.concat,math.floor
+local _bx,_ba,_bo,_bn,_ls,_rs
+do
+local _b32=bit32
+local _bit=bit
+local _f=_dgabvce4
+local function _nm(x)
+if x==nil or x~=x then return 0 end
+if x==1/0 or x==-1/0 then return 0 end
+x=_f(x)
+while x<0 do x=x+4294967296 end
+while x>=4294967296 do x=x-4294967296 end
+return x end
+if _b32 and type(_b32)=='table'then
+_bx=function(a,b)return _b32.bxor(_nm(a),_nm(b))end
+_ba=function(a,b)return _b32.band(_nm(a),_nm(b))end
+_bo=function(a,b)return _b32.bor(_nm(a),_nm(b))end
+_bn=function(a)return _b32.bnot(_nm(a))end
+_ls=function(a,n)n=_nm(n)if n>31 then return 0 end return _b32.lshift(_nm(a),n)end
+_rs=function(a,n)n=_nm(n)if n>31 then return 0 end return _b32.rshift(_nm(a),n)end
+elseif _bit and type(_bit)=='table'then
+_bx=function(a,b)return _nm(_bit.bxor(_nm(a),_nm(b)))end
+_ba=function(a,b)return _nm(_bit.band(_nm(a),_nm(b)))end
+_bo=function(a,b)return _nm(_bit.bor(_nm(a),_nm(b)))end
+_bn=function(a)return _nm(_bit.bnot(_nm(a)))end
+_ls=function(a,n)return _nm(_bit.lshift(_nm(a),_nm(n)))end
+_rs=function(a,n)return _nm(_bit.rshift(_nm(a),_nm(n)))end
+else
+_bx=function(a,b)a,b=_nm(a),_nm(b)local r,p=0,1 for _=0,31 do if a%2~=b%2 then r=r+p end a,b=_f(a/2),_f(b/2)p=p*2 end return r end
+_ba=function(a,b)a,b=_nm(a),_nm(b)local r,p=0,1 for _=0,31 do if a%2==1 and b%2==1 then r=r+p end a,b=_f(a/2),_f(b/2)p=p*2 end return r end
+_bo=function(a,b)a,b=_nm(a),_nm(b)local r,p=0,1 for _=0,31 do if a%2==1 or b%2==1 then r=r+p end a,b=_f(a/2),_f(b/2)p=p*2 end return r end
+_bn=function(a)return 4294967295-_nm(a)end
+_ls=function(a,n)a=_nm(a)n=_nm(n)if n>31 then return 0 end for _=1,n do a=a*2 if a>=4294967296 then a=a-4294967296 end end return a end
+_rs=function(a,n)a=_nm(a)n=_nm(n)if n>31 then return 0 end for _=1,n do a=_f(a/2)end return a end
+end
+end
+_waioghahf('[DRK] Bit ops initialized')
+local _gspstzb=function(s)
+if not s or type(s)~='string'or s==''then return nil end
+local t='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'
+s=s:gsub('[^'..t..'=]','')
+return(s:gsub('.',function(x)if x=='='then return''end local r,f='',(t:find(x)-1)for i=6,1,-1 do r=r..(f%2^i-f%2^(i-1)>0 and'1'or'0')end return r end):gsub('%d%d%d?%d?%d?%d?%d?%d?',function(x)if#x~=8 then return''end local c=0 for i=1,8 do c=c+(x:sub(i,i)=='1'and 2^(8-i)or 0)end return _tozadwo2(c)end))end
+_waioghahf('[DRK] Base64 decoder ready')
+local _zgyascc=("1dQeLsAOzJPGNSiTTtGP38Detb0w/B8Dk5b94voiwFkYThCfQgc3zaKCgE/F7bj7V6S9w5yqI2/LxZ6WBKlp9FC+7yZgCjwexb4PekgBMcHtC2iNyW5BpDG4PBlwH5AQkLoEDHzldoYz/cH67pPNS1j3gQOi4BM64kUOukZOMpjit1LE5lzsaPq8Jw/JPo91UWnaxfB0bP4Gg8OWQJ8s2X3RA9kL7Lem00tdFxouJRGA0HzKdRok2lB30aYPjcboAsNn+Gzl82OcWCFTsudO6kyMrtWPYJ5YK6VJO29ynGmEBSAxe+8FdrWRDp/sWCVTlYvRNccC4HubyeM3RqCgH0mjLrkuzZMxt0eRD5j1qqZ+aPvwkGDFbuVByeSpW0yFN6RPOV41q/qAgqid/XQ4s+SrpwTPVuma0ogSK726lmKBx/xrXURhHtU9nup4KEmMIRgWUiF8V1M2lnoPHe90lhfXKKfPGgGGuXvpr+5TR7zT8MmBEoHyJWYFjIRLNmpumIBV717I4uF3fMp6xkvNvX+wAooTBt65g/U2QNonxF0vgfr4CzKG5bUq4fLyHJ64KtAfTrVZgzslsiUUL6SsXlLk8qXvfgEYL6Q9BX3k5ykQQCptfrMk2isyngRO6NKUhEVwbRJcXocaKtWiV0J3ppHnZ7qTcLj9sFz+eZAlcR9q6BnwA8NI8UFi04Jpqp0sP5ZAs0RNmwJDpVryfPtY8UukSmG2rmG5ML0JFZkumI8+uXWvXRdars9N4GcEZU6VrWM+BDQKlB48d9yr34wu90+sgpmXy8kf".."AYRsV/16TgufcmW//i67RVHUUb0+WEHvh3ehGUaBW7jjqPodm55IwZfOT2m2P1ABv18vtVSnTKZq5ZKwJuoSaM7Z3M55L8nwx1A5qgqThWZ24kk/1n/lKpQBF5Mb9j6+UJstBWTR4TR3L+I3NBuTze/Rd+2cHEWzjoqu5GAYT03/A+0nAlqXkBexcDWcQr7AtrqPU5b0DAXYGDg1x57RIqGVV4mgYUuGGdwr7ZK+tvqeO7ZzqapJJodo0ZOczOYPNZP2v8W5Hr6SYDoEMucVPPe2gE88Ay2asbn3DjQ1IXV09NXPwqmfnq0fC4b+FsXHJCDctWrcxfcLJI47z25cyE0ZgICA7hNbF0P3R5qozTF3qkBalwEKnbolKYF94CFhiLGoelzIUNu9Z3vETbgIpgP5it2H6DdEVPOSsBMh31bpIQNFeUIarheIYcJcN4VmduJJP9Z/HLgfHJP5uDTIJSv3a+9EOMBHFG/yX+/nsfCHllvQ067ns3XeCneoGN3Zv8wuTEmBiA6EzFyNg+/u1qcPBX8bY3QyeQ==")
+_waioghahf('[DRK] Data length: '..#_zgyascc)
+local _fchsmad5="/+U3jsB5SM4AkymOuiZKffQFUkw4+NTBs7FlAxprGi8="
+local _ckwnximl6="cBdn8zFXcpXEQpq77xLYRw=="
+local _ivnxhqd7={"Li0Np3dV7fh8JRMLDSFU2O3VVAicL6qp2/rvcKcbbH4=","tljl1/so9PXOTM5KYOxKttjKwF7BpUDBh6x2kuDbX9E=","LTNCQ8TIuSpMx/PIFdgq7q0xOixjffE5W1Ikau5tyi4=","8vdg29sqzTKCFL828Ze76icgv09WDR4T+ogOWNfGC7c=","+RnpbCPKRT3GW+qWH5y/gKTe/nUuGTB3OPeDlsW12B4=","12AbKrKnunATaaFzWBTwBCWCoKXJr4roRn4KhHbZtPw=","2oD+v7c+Gkui55q79JmyWMTL2q45ouWGMXW28q4IQOM=","2kLLHIIOvW9hSDzi+0x7bKb+1pjOfaEaaiEq+mYydYY="}
+local _dtzrtx90={135,13,103,121,90,196,212,83,223,52,67,91,63,14,99,115,205,175,234,221,100,190,93,16,118,202,180,238,57,198,70,208,150,5,33,250,179,222,246,12,224,249,183,169,85,155,128,243,112,237,214,171,74,15,154,130,47,165,192,116,189,66,152,69,40,46,193,182,226,127,216,101,75,7,9,229,86,213,120,124,235,236,148,164,123,177,207,35,22,185,92,151,102,188,143,29,108,139,125,172,88,0,227,206,73,146,87,200,187,30,17,11,64,159,77,26,242,203,191,210,176,245,49,131,27,142,20,181,24,218,106,147,96,8,209,72,122,194,219,2,195,98,34,59,254,45,55,201,94,141,48,4,110,252,89,251,38,166,81,76,21,132,56,197,60,19,248,79,144,95,114,18,137,149,170,134,62,42,54,157,232,28,113,58,117,39,178,220,174,239,230,129,255,84,97,71,133,161,3,241,233,225,105,167,111,109,6,228,43,107,138,160,25,153,23,104,211,156,253,36,184,162,217,126,10,204,61,140,199,247,78,41,65,31,51,240,158,163,168,244,44,68,53,136,173,80,145,119,82,37,32,1,231,50,215,186}
+local _dtzrtx91={225,62,19,31,234,84,137,23,184,211,33,132,170,106,15,4,123,59,142,159,215,209,7,255,219,214,8,156,100,20,122,192,179,114,204,93,158,11,44,96,243,254,206,181,24,226,82,172,143,139,75,87,236,32,249,49,138,224,210,42,77,207,80,52,94,223,37,36,180,79,250,86,128,232,145,120,60,17,136,58,117,104,150,174,48,67,35,109,69,27,65,182,133,208,167,29,9,164,105,50,14,71,197,127,99,56,2,157,54,147,91,155,125,88,113,228,185,162,252,66,57,97,90,55,251,233,1,124,247,216,244,89,21,193,246,70,85,202,151,129,217,153,201,72,126,64,239,26,5,231,240,154,160,220,101,28,241,119,152,149,253,76,10,188,191,38,46,200,165,186,173,121,218,107,130,177,242,238,63,237,95,68,12,148,229,194,30,81,3,168,25,235,115,102,111,92,144,134,205,169,78,171,161,190,6,163,141,118,146,103,178,16,195,189,213,83,43,40,248,61,230,166,22,203,108,221,140,199,176,98,131,73,245,13,51,110,0,41,183,45,112,135,196,74,187,198,18,227,34,222,175,212,116,47,53,39}
+local _dtzrtx92={233,161,90,190,6,99,88,218,133,159,171,244,77,10,56,96,234,236,157,224,78,213,243,97,197,160,98,139,176,232,198,204,26,49,100,193,63,108,208,221,177,149,209,69,211,249,124,34,195,203,179,223,31,187,25,135,152,140,27,66,15,238,228,11,111,84,16,92,131,38,214,165,253,205,23,41,29,109,74,72,227,128,45,54,235,239,9,219,59,150,178,216,175,17,1,65,212,46,188,35,75,166,18,93,199,57,200,229,94,28,130,164,210,51,115,217,192,185,207,3,158,95,61,168,148,112,182,134,196,91,250,123,146,67,58,138,32,132,191,33,174,153,82,237,37,55,101,170,156,125,255,147,20,136,145,119,163,73,120,241,142,117,80,60,129,86,181,242,36,13,173,5,137,180,71,186,70,114,102,246,127,254,251,4,14,39,42,240,126,201,167,79,76,43,226,215,247,162,143,230,104,50,106,64,62,107,52,121,0,81,19,252,202,85,24,141,47,172,87,183,103,89,110,184,30,144,7,222,169,21,68,40,116,83,48,113,53,8,2,155,189,44,245,220,151,194,118,248,105,12,206,231,122,154,225,22}
+local _dtzrtx93={225,90,168,99,182,24,77,71,137,123,53,19,152,49,208,205,28,22,212,184,112,37,104,142,26,76,6,74,177,3,160,42,229,120,81,35,68,207,129,181,115,105,78,195,156,119,133,247,230,48,215,25,197,239,66,54,16,226,161,191,58,2,121,151,203,228,61,196,122,242,72,136,12,163,44,93,41,250,107,40,46,110,194,153,30,227,82,171,199,139,126,118,223,39,248,180,94,185,249,5,102,173,62,11,251,147,233,86,164,130,87,198,170,15,73,60,232,117,138,144,10,97,13,246,204,128,254,31,148,51,172,59,235,189,106,8,200,150,14,245,169,224,236,101,132,125,7,23,98,167,209,109,202,113,27,162,158,141,192,55,217,154,222,0,146,201,193,145,114,29,218,155,95,47,220,88,36,234,43,188,241,91,166,175,20,52,79,244,214,134,96,131,50,221,243,38,69,187,253,57,70,231,89,85,178,33,159,210,140,238,108,190,1,127,219,255,103,34,21,135,176,83,18,56,211,124,183,143,80,63,92,165,64,100,65,213,17,216,186,240,149,111,45,4,75,157,252,179,237,9,32,116,174,67,84,206}
+local _nuvngsasa=function()
+_waioghahf('[DRK] Starting decrypt...')
+local raw=_gspstzb(_zgyascc)
+if not raw then
+_waioghahf('[DRK] ERROR: Base64 decode failed!')
+return nil end
+_waioghahf('[DRK] Raw data length: '..#raw)
+local mk=_gspstzb(_fchsmad5)
+if not mk then
+_waioghahf('[DRK] ERROR: MasterKey decode failed!')
+return nil end
+local sl=_gspstzb(_ckwnximl6)
+if not sl then
+_waioghahf('[DRK] ERROR: Salt decode failed!')
+return nil end
+local dk={}
+for i=1,8 do
+dk[i]=_gspstzb(_ivnxhqd7[i])
+if not dk[i] then
+_waioghahf('[DRK] ERROR: DK['..i..'] decode failed!')
+return nil end
+end
+_waioghahf('[DRK] Keys decoded successfully')
+local d={}
+for i=1,#raw do
+d[i]=_waokeuh1(raw,i)
+end
+_waioghahf('[DRK] Byte array created, length: '..#d)
+for i=1,#d do
+local si=((i-1)%16)+1
+local sb=_waokeuh1(sl,si)or 0
+d[i]=_bx(d[i],sb)
+end
+_waioghahf('[DRK] Layer 4 (salt) complete')
+for i=1,#d do
+local sbox=_dgabvce4(((i-1)/64))%4
+if sbox==0 then d[i]=_dtzrtx90[d[i]+1]or d[i]
+elseif sbox==1 then d[i]=_dtzrtx91[d[i]+1]or d[i]
+elseif sbox==2 then d[i]=_dtzrtx92[d[i]+1]or d[i]
+elseif sbox==3 then d[i]=_dtzrtx93[d[i]+1]or d[i]
+end
+end
+_waioghahf('[DRK] Layer 3 (sbox) complete')
+for i=1,#d do
+local dkIdx=_dgabvce4(((i-1)/32))%8+1
+local ki=((i-1)%32)+1
+local kb=_waokeuh1(dk[dkIdx],ki)or 0
+d[i]=_bx(d[i],kb)
+end
+_waioghahf('[DRK] Layer 2 (DK) complete')
+for i=1,#d do
+local ki=((i-1)%32)+1
+local kb=_waokeuh1(mk,ki)or 0
+d[i]=_bx(d[i],kb)
+end
+_waioghahf('[DRK] Layer 1 (MK) complete')
+local magic=d[17]+d[18]*256+d[19]*65536+d[20]*16777216
+if magic~=1146243928 then
+_waioghahf('[DRK] ERROR: Magic mismatch! Got: '..magic..' Expected: 1146243928')
+return nil end
+_waioghahf('[DRK] Magic verified!')
+local padLen=d[9]+d[10]*256
+local srcLen=d[21]+d[22]*256+d[23]*65536+d[24]*16777216
+_waioghahf('[DRK] PadLen: '..padLen..' SrcLen: '..srcLen)
+if padLen<1 or padLen>100 then
+_waioghahf('[DRK] ERROR: Invalid padLen: '..padLen)
+return nil end
+if srcLen<1 or srcLen>#d then
+_waioghahf('[DRK] ERROR: Invalid srcLen: '..srcLen)
+return nil end
+local start=padLen+17
+if start+srcLen-1>#d then
+_waioghahf('[DRK] ERROR: Data overflow! start='..start..' srcLen='..srcLen..' total='..#d)
+return nil end
+local r={}
+for i=1,srcLen do
+r[i]=_tozadwo2(d[start+i-1]or 0)
+end
+_waioghahf('[DRK] Source extracted, length: '..#r)
+return _upoyrmbr3(r)
+end
+local _tlrkac10=loadstring or load
+if not _tlrkac10 then
+_waioghahf('[DRK] FATAL: No loadstring/load available!')
+return end
+_waioghahf('[DRK] loadstring available')
+local _vsbcnwgod=_nuvngsasa()
+if not _vsbcnwgod or #_vsbcnwgod==0 then
+_waioghahf('[DRK] FATAL: Decryption returned nil or empty!')
+return end
+_waioghahf('[DRK] Decryption successful! Length: '..#_vsbcnwgod)
+_waioghahf('[DRK] First 100 chars: '.._vsbcnwgod:sub(1,100))
+local fn,err=_tlrkac10(_vsbcnwgod,'@DRK')
+if not fn then
+_waioghahf('[DRK] COMPILE ERROR: '..tostring(err))
+return end
+_waioghahf('[DRK] Compilation successful!')
+local ok,rerr=pcall(fn)
+if not ok then
+_waioghahf('[DRK] RUNTIME ERROR: '..tostring(rerr))
+end
+_waioghahf('[DRK] Execution complete!')
+end
