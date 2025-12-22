@@ -1,0 +1,259 @@
+--[[ Protected | C03F0EDB ]]
+local M_pGol=bit32 and bit32.bxor or function(a,b) a=a%4294967296 b=b%4294967296 local r,p=0,1 for i=0,31 do local x,y=a%2,b%2 if x~=y then r=r+p end a=(a-x)/2 b=(b-y)/2 p=p*2 end return r end
+local fN_r_aa=bit32 and bit32.band or function(a,b) a=a%4294967296 b=b%4294967296 local r,p=0,1 for i=0,31 do local x,y=a%2,b%2 if x==1 and y==1 then r=r+p end a=(a-x)/2 b=(b-y)/2 p=p*2 end return r end
+local Q_L_Tx=bit32 and bit32.bor or function(a,b) a=a%4294967296 b=b%4294967296 local r,p=0,1 for i=0,31 do local x,y=a%2,b%2 if x==1 or y==1 then r=r+p end a=(a-x)/2 b=(b-y)/2 p=p*2 end return r end
+local rwq__w__m=bit32 and bit32.lshift or function(a,n) return (a*(2^n))%4294967296 end
+local ikVwkDUW=bit32 and bit32.rshift or function(a,n) return math.floor((a%4294967296)/(2^n)) end
+local c_Gn_JAq_o=string.byte
+local GOzYHyXAL=string.char
+local unpack=unpack or table.unpack
+
+local P_qUoyY="\155\000\000\000_F^\000{\000]]y\000f\001\161\139f\000\129\001\184\134\128\000\243\000\188U\240\000\233\0010J\232\000\013\000~G\015\000\182\000m\150\182\000X\000\1282^\000K\000\220)J\000\021\000'(\018\001b\000\003D`\000\017\000W \018\000\246\000@.\253\000\027\0000\208\018\000\218\000\193\005\217\000u\000\021\204s\000\197\000\034\151\196\0002\000\15278\001\171\000&\243\170\000\183\000\233\127\180\000\174\001\026\014\161\000q\000\026 s\0008\000*\2348\000#\000\015\092\034\000\148\000RR\149\000+\000|\215!\001y\000\231}w\000\130\000\000\092\134\000\149\001H\188\156\000j\000\131\156d\000P\000\130v]\000^\000\183\131Q\000{\000\183\159~\000e\000\180\137d\000\131\000\131\134\130\000\243\000\236\020\227\001\239\000\024M\225\000\013\000TF\009\000\176\001\190S\165\000X\000@\245J\000K\000\216/N\000\021\0001-\004\000`\000P\000s\000\017\000\015c\022\000\254\000\127(\251\000\025\000#\212\024\000\218\000>\194\219\000w\000\208\013c\001\199\000\025\145\208\0002\000\13666\000\191\001N\180\190\000\183\000\1758\160\000\170\000\026\011\189\000q\000\218\225u\0008\000\234)9\000#\000\015]\034\000\148\000WR\140\001)\000*\150&\000{\000\156:z\000\130\000\016\092\155\001\147\000`\188\146\000j\000EZn\000T\001B\180J\000^\000\219\199\092\000y\000\200\222x\000g\000\143\142|\000\131\000\150\129\134\000\247\001\186R\254\000\237\000\176\207\241\000\013\000\254\193\014\000\182\000\237\020\176\000X\000\019\180Z\000K\000\217.V\001\022\000\034(\020\000`\000\003Cb\000\017\000N \027\001\253\000\251\174\253\000\027\000\182R\030\000\222\001m\132\196\000w\000\170Ju\000\199\000\034\150\193\0002\000\15713\000\169\000\029\245\170\000\183\000\249x\189\001\174\000\178\139\166\000q\000\176\167w\000>\001\185m%\000#\000\028Y\003\000\148\000VV\147\000+\000j\220&\000{\000\207pZ\000\130\000\170\218\135\000\147\000\219<\148\000j\000\016\028i\000P\000\020\245@\001Z\000\159\130R\000{\000\157\153}\000c\001\167\141j\000\131\000\144\130\159\000\243\000z\159\226\000\237\000\176\192\205\000\013\000\197\204\004\000\180\000\146R\177\000Z\000S\244]\000K\000\220/H\000\021\000'.\001\001d\000\208\131B\000\017\000\139\225\018\000\254\000\197\174\221\001\031\000\152P\014\000\218\000+\196\220\000a\001\198\008d\000\197\0001\146\214\0002\000\142=!\000\169\000\2265\173\000\181\000<\185\178\000\170\000\137\136\169\000q\000\224\231i\001>\000\209-/\000#\000\026[%\000\144\001AW\139\000+\000\170\0194\000{\000\015\177d\000\130\000\170\218\134\000\147\000\219<\148\000j\000P\092i\000P\000T\181t\001Z\000w@S\000{\000HYx\000g\000\177\142~\001\135\000\184\131\128\000\243\000\188R\245\000\233\0010O\247\000\013\000~@\015\000\182\000m\147\177\000X\000\1687C\000K\000\201,L\000\017\0011,\024\000`\000\016OE\000\017\000t\034\018\000\252\000@.\248\000\027\000#\208\031\000\218\000\251\007\199\001r\000\021\203t\000\197\000\034\147\193\0002\000\15238\001\172\000\029\247\170\000\183\000\233{\176\000\140\001\021\010\172\000V\000%*w\000:\000\016\226:\000#\0000Y \000\150\000RT\147\000+\000c\212*\000{\000"
+local pHoNlEgC="(\000\000\000\132w\000\000\000\224\001\172\028\231\147\000\000\000\180)\156~\227h\160o>\000\000\000 \187M\206_\170\227\251\219\185\168\222\133\000\000\000\148I\213N\146\232\240\206\212t\000\000\000\1853\189\172\255\000\000\000\252P\136\234\255\204\155\175\000;c\000\000\000k\152\233\225\197\178\1507\185z\167\000\000\0007mtD\185\218\000\000\000\237\206\254\157\1693\188\198w\1455\133\219\202\000\000\000\136\140\255\225N\203\181\029\230\219\253\000\000\000\136\199\210v\239\190J\128\000\000\000\015=\157\003@\242\134\000\000\000\164\006\185\2463\134\132\022]\199 \1299\195\134\132\207U\178\019\1718\144\009\011\145v\215o\149J\200\011w\000\000\000[\1344\147\201\203j\210(\1695\028\182\224\226Z\160!\189tXT/-\215V\202\003v-\027\021\127\000\000\000F\248x\171\195\203\245\138\143\240\000\000\000\207\127\181\195\203\178:m\000\000\000_\130\234\253\250\145\146\156\158\235\254\198\184\1903\2238\198\000\000\000yOu\003\009\175 q\240\029\155\015\246t\245}\248\204\000\000\000\185\172\207\223m\232\130\034\214h\229&\1827\247\218\243\000\000\000\140\238\226}\242\1654\196%\129\000\000\000sd\250l\242\240C\209\154\000\231b\190$<\000\000\000d\218\140\010\230P\200\001\133\020\193\178\006\168\000\000\000Q+\172G\208_\164%\162jnl\246\017\176\008\242\131\208+)\206o\215-\172\004\185jh\201q\139\010\150\027j\160=\000\000\000\224w\136\003\151\021\0130\129\137\000\000\000\214\029\129\017\150}\000\000\000\193q\2405wNu\008\019\225\175\1731\248\141\152\160\254\152}{\000\000\0003\216\183\164\138\211\226P\194\146\009\177b\245\010\129\021\188\164\000\000\000\252\165\177\137\252\252X"
+local yQ__MH="\000\000\010"
+local L__evWkis_="\003\009\021\016!\005'\034&\029\015\031\002\028\019\025\001\023\022\030\010\024\007\018\008$\027\014\013%\000 #\006\004\020\012\017\026\011"
+local SYuqiKyan="jP^{g\131\243\237\013\180XK\021`\017\254\027\218w\1972\169\183\170q:#\148+{\130\145"
+local Gie_BdI="s\1485\141w\246j\163\214\195\251\133\1310\162\233"
+local mBOsGQ_={{b="\005\000\000\000_E^\000{\000[^z\000g\000\139\138e\000\129\000\131\133\130\000\243\000\179W\242\000\237\000",c="\002\000\000\000\132v\000\000\000\247\018\168\023\247\231\155\000\000\000\1660\137s\233t\243\229\223\226\150\152%\182\184",m="\000\000\003"},}
+
+local fH_uPtX_={}
+for i=1,#L__evWkis_ do fH_uPtX_[c_Gn_JAq_o(L__evWkis_,i)]=i-1 end
+
+local function V__Sb__(data,key,shadow)
+  local r={}
+  local kl=#key
+  for i=1,#data do
+    local b=c_Gn_JAq_o(data,i)
+    local k=c_Gn_JAq_o(key,((i-1)%kl)+1)
+    r[i]=GOzYHyXAL(M_pGol(b,k))
+  end
+  return table.concat(r)
+end
+
+local function FH_y_OHm(data,cx,shadow)
+  local K={}
+  local pos=1
+  local cxl=#cx
+  local st=shadow
+  local function rb() local b=c_Gn_JAq_o(data,pos) or 0 pos=pos+1 return b end
+  local function r32() local a,b,c,d=rb(),rb(),rb(),rb() return fN_r_aa(a+rwq__w__m(b,8)+rwq__w__m(c,16)+rwq__w__m(d,24),4294967295) end
+  local n=r32()
+  if n>100000 then return K end
+  for ci=1,n do
+    local xi=((ci-1)%%cxl)+1
+    local em=fN_r_aa(M_pGol(st,ci*17),255)
+    local tb=rb()
+    local t=M_pGol(M_pGol(tb,c_Gn_JAq_o(cx,xi)),em)
+    st=M_pGol(st,tb)
+    if t==0 then
+      K[ci]=nil
+    elseif t==1 then
+      K[ci]=M_pGol(M_pGol(rb(),c_Gn_JAq_o(cx,((ci)%cxl)+1)),em)~=0
+    elseif t==2 then
+      local bytes={}
+      for j=0,7 do bytes[j+1]=M_pGol(M_pGol(rb(),c_Gn_JAq_o(cx,((ci-1+j)%cxl)+1)),em) end
+      local sign=(fN_r_aa(bytes[8],128)~=0) and -1 or 1
+      bytes[8]=fN_r_aa(bytes[8],127)
+      local exp=Q_L_Tx(rwq__w__m(bytes[8],4),ikVwkDUW(fN_r_aa(bytes[7],240),4))-1023
+      local mant=fN_r_aa(bytes[7],15)
+      for j=6,1,-1 do mant=mant*256+bytes[j] end
+      mant=mant/(2^52)
+      if exp==-1023 then
+        K[ci]=mant==0 and 0 or sign*(2^-1022)*mant
+      elseif exp==1024 then
+        K[ci]=mant==0 and sign*(1/0) or 0/0
+      else
+        K[ci]=sign*(2^exp)*(1+mant)
+      end
+    elseif t==3 then
+      local sl=M_pGol(r32(),c_Gn_JAq_o(cx,xi))
+      if sl>100000 then sl=0 end
+      local chars={}
+      for j=1,sl do chars[j]=GOzYHyXAL(M_pGol(M_pGol(rb(),c_Gn_JAq_o(cx,((ci-1+j-1)%cxl)+1)),em)) end
+      K[ci]=table.concat(chars)
+    end
+    st=M_pGol(Q_L_Tx(rwq__w__m(st,7),ikVwkDUW(st,25)),ci)
+  end
+  return K
+end
+
+local function iK_h_Dj__vu(proto,e,u)
+  if not proto or not proto.code then return function() end end
+  return function(...) return VIlSVF(proto,e,u,{...}) end
+end
+
+local function VIlSVF(proto,zp_xUcemQ_,SCLhwrgEeX,uOsmd_o_Qv)
+  if not proto or not proto.code then return end
+  local tsr_mX_RWb={}
+  local mWX_IVEHW=1
+  local top=-1
+  local dh_FGcQ=proto.code
+  local P_axYr=proto.K or {}
+  local cFh_Tb_R=proto.protos or {}
+  local np=proto.np or 0
+  local va=proto.va
+
+  for i=1,np do tsr_mX_RWb[i-1]=uOsmd_o_Qv[i] end
+  if va then local v={} for i=np+1,#uOsmd_o_Qv do v[#v+1]=uOsmd_o_Qv[i] end uOsmd_o_Qv=v end
+
+  local ni=#dh_FGcQ
+  while mWX_IVEHW<=ni do
+    local ins=dh_FGcQ[mWX_IVEHW]
+    if not ins then break end
+    local op,A,B,C=ins[1],ins[2],ins[3],ins[4]
+    mWX_IVEHW=mWX_IVEHW+1
+
+    if op==0 then -- NOP
+    elseif op==1 then tsr_mX_RWb[A]=P_axYr[B+1] -- LOADK
+    elseif op==2 then for i=A,A+B do tsr_mX_RWb[i]=nil end -- LOADNIL
+    elseif op==3 then tsr_mX_RWb[A]=B~=0 if C~=0 then mWX_IVEHW=mWX_IVEHW+1 end -- LOADBOOL
+    elseif op==4 then tsr_mX_RWb[A]=zp_xUcemQ_[P_axYr[B+1]] -- GETGLOBAL
+    elseif op==5 then zp_xUcemQ_[P_axYr[B+1]]=tsr_mX_RWb[A] -- SETGLOBAL
+    elseif op==6 then tsr_mX_RWb[A]=tsr_mX_RWb[B] -- GETLOCAL/MOVE
+    elseif op==7 then tsr_mX_RWb[B]=tsr_mX_RWb[A] -- SETLOCAL
+    elseif op==8 then if SCLhwrgEeX[B+1] then tsr_mX_RWb[A]=SCLhwrgEeX[B+1].v end -- GETUPVAL
+    elseif op==9 then if SCLhwrgEeX[B+1] then SCLhwrgEeX[B+1].v=tsr_mX_RWb[A] end -- SETUPVAL
+    elseif op==10 then -- GETTABLE
+      local t=tsr_mX_RWb[B]
+      local k=C>=256 and P_axYr[C-255] or tsr_mX_RWb[C]
+      tsr_mX_RWb[A]=t and t[k]
+    elseif op==11 then -- SETTABLE
+      local t=tsr_mX_RWb[A]
+      local k=B>=256 and P_axYr[B-255] or tsr_mX_RWb[B]
+      local v=C>=256 and P_axYr[C-255] or tsr_mX_RWb[C]
+      if t then t[k]=v end
+    elseif op==12 then tsr_mX_RWb[A]={} -- NEWTABLE
+    elseif op==13 then tsr_mX_RWb[A]=(tsr_mX_RWb[B] or 0)+(tsr_mX_RWb[C] or 0) -- ADD
+    elseif op==14 then tsr_mX_RWb[A]=(tsr_mX_RWb[B] or 0)-(tsr_mX_RWb[C] or 0) -- SUB
+    elseif op==15 then tsr_mX_RWb[A]=(tsr_mX_RWb[B] or 0)*(tsr_mX_RWb[C] or 0) -- MUL
+    elseif op==16 then tsr_mX_RWb[A]=(tsr_mX_RWb[B] or 0)/(tsr_mX_RWb[C] or 1) -- DIV
+    elseif op==17 then tsr_mX_RWb[A]=(tsr_mX_RWb[B] or 0)%(tsr_mX_RWb[C] or 1) -- MOD
+    elseif op==18 then tsr_mX_RWb[A]=(tsr_mX_RWb[B] or 0)^(tsr_mX_RWb[C] or 0) -- POW
+    elseif op==19 then tsr_mX_RWb[A]=-(tsr_mX_RWb[B] or 0) -- UNM
+    elseif op==20 then tsr_mX_RWb[A]=not tsr_mX_RWb[B] -- NOT
+    elseif op==21 then tsr_mX_RWb[A]=#(tsr_mX_RWb[B] or '') -- LEN
+    elseif op==22 then -- CONCAT
+      local t={}
+      for i=B,C do t[#t+1]=tostring(tsr_mX_RWb[i] or '') end
+      tsr_mX_RWb[A]=table.concat(t)
+    elseif op==23 then if (tsr_mX_RWb[B]==tsr_mX_RWb[C])~=(A~=0) then mWX_IVEHW=mWX_IVEHW+1 end -- EQ
+    elseif op==24 then if (tsr_mX_RWb[B]<tsr_mX_RWb[C])~=(A~=0) then mWX_IVEHW=mWX_IVEHW+1 end -- LT
+    elseif op==25 then if (tsr_mX_RWb[B]<=tsr_mX_RWb[C])~=(A~=0) then mWX_IVEHW=mWX_IVEHW+1 end -- LE
+    elseif op==26 then mWX_IVEHW=mWX_IVEHW+B -- JMP
+    elseif op==27 then if tsr_mX_RWb[A] then mWX_IVEHW=B end -- JMPIF
+    elseif op==28 then if not tsr_mX_RWb[A] then mWX_IVEHW=B end -- JMPIFNOT
+    elseif op==29 then -- CALL
+      local f=tsr_mX_RWb[A]
+      if type(f)=='function' then
+        local args={}
+        local nargs=B-1
+        if B==0 then nargs=top-A end
+        if nargs<0 then nargs=0 end
+        for i=1,nargs do args[i]=tsr_mX_RWb[A+i] end
+        local rets={f(unpack(args,1,nargs))}
+        if C==0 then
+          for i=1,#rets do tsr_mX_RWb[A+i-1]=rets[i] end
+          top=A+#rets-1
+        else
+          for i=1,C-1 do tsr_mX_RWb[A+i-1]=rets[i] end
+        end
+      end
+    elseif op==30 then -- RETURN
+      if B==0 then
+        local r={} for i=A,top do r[#r+1]=tsr_mX_RWb[i] end return unpack(r)
+      elseif B==1 then
+        return
+      else
+        local r={} for i=1,B-1 do r[i]=tsr_mX_RWb[A+i-1] end return unpack(r,1,B-1)
+      end
+    elseif op==31 then -- CLOSURE
+      local p=cFh_Tb_R[B+1]
+      if p then
+        local nU={}
+        for i,uv in ipairs(p.upvals or {}) do
+          if uv.instack then nU[i]={v=tsr_mX_RWb[uv.idx]}
+          else nU[i]=SCLhwrgEeX[uv.idx+1] or {v=nil} end
+        end
+        tsr_mX_RWb[A]=iK_h_Dj__vu(p,zp_xUcemQ_,nU)
+      end
+    elseif op==32 then -- VARARG
+      local va=uOsmd_o_Qv or {}
+      local n=B-1
+      if B==0 then n=#va end
+      for i=1,n do tsr_mX_RWb[A+i-1]=va[i] end
+      if B==0 then top=A+n-1 end
+    elseif op==33 then -- SELF
+      local t=tsr_mX_RWb[B]
+      tsr_mX_RWb[A+1]=t
+      tsr_mX_RWb[A]=t and t[P_axYr[C+1]]
+    elseif op==34 then -- FORPREP
+      tsr_mX_RWb[A]=(tsr_mX_RWb[A] or 0)-(tsr_mX_RWb[A+2] or 1)
+      mWX_IVEHW=mWX_IVEHW+B
+    elseif op==35 then -- FORLOOP
+      local step=tsr_mX_RWb[A+2] or 1
+      local idx=(tsr_mX_RWb[A] or 0)+step
+      local lim=tsr_mX_RWb[A+1] or 0
+      tsr_mX_RWb[A]=idx
+      local cont=false
+      if step>0 then cont=idx<=lim else cont=idx>=lim end
+      if cont then tsr_mX_RWb[A+3]=idx mWX_IVEHW=mWX_IVEHW+B end
+    elseif op==36 then -- TFORLOOP
+      local f=tsr_mX_RWb[A]
+      local s=tsr_mX_RWb[A+1]
+      local var=tsr_mX_RWb[A+2]
+      if type(f)=='function' then
+        local r={f(s,var)}
+        for i=1,C do tsr_mX_RWb[A+2+i]=r[i] end
+        if r[1]~=nil then tsr_mX_RWb[A+2]=r[1] else mWX_IVEHW=mWX_IVEHW+1 end
+      else
+        mWX_IVEHW=mWX_IVEHW+1
+      end
+    elseif op==37 then -- CLOSE
+    elseif op==38 then tsr_mX_RWb[A]=tsr_mX_RWb[B] -- MOVE
+    end
+  end
+end
+
+local function buildProto(bc,cn,mt,ch,shadow)
+  shadow=shadow or 0
+  local raw=V__Sb__(bc,SYuqiKyan,shadow)
+  if not raw or #raw<4 then return nil end
+  local K=FH_y_OHm(cn,Gie_BdI,shadow)
+  local pos=1
+  local function rb() local b=c_Gn_JAq_o(raw,pos) or 0 pos=pos+1 return b end
+  local function r32() local a,b,c,d=rb(),rb(),rb(),rb() return fN_r_aa(a+rwq__w__m(b,8)+rwq__w__m(c,16)+rwq__w__m(d,24),4294967295) end
+  local function rs16() local a,b=rb(),rb() local v=a+b*256 if v>=32768 then v=v-65536 end return v end
+  local ni=r32()
+  if ni>1000000 then return nil end
+  local code={}
+  local kl=#SYuqiKyan
+  for i=1,ni do
+    local xi=((i-1)%%kl)+1
+    local shm=M_pGol(fN_r_aa((shadow*31337+i*7919)%4294967296,255),i%256)
+    local opEnc=rb()
+    local opDec=M_pGol(M_pGol(opEnc,c_Gn_JAq_o(SYuqiKyan,xi)),shm)
+    local realOp=fH_uPtX_[opDec]
+    if not realOp then realOp=0 end
+    local aEnc=rb()
+    local aVal=M_pGol(M_pGol(aEnc,c_Gn_JAq_o(SYuqiKyan,((i)%kl)+1)),shm)
+    local bVal=rs16()
+    bVal=M_pGol(bVal,c_Gn_JAq_o(SYuqiKyan,((i+1)%kl)+1))
+    local cVal=rs16()
+    cVal=M_pGol(cVal,c_Gn_JAq_o(SYuqiKyan,((i+2)%kl)+1))
+    code[i]={realOp,aVal,bVal,cVal}
+  end
+  local np=c_Gn_JAq_o(mt,1) or 0
+  local va=(c_Gn_JAq_o(mt,2) or 0)~=0
+  local protos={}
+  for i,c in ipairs(ch or {}) do
+    protos[i]=buildProto(c.b,c.c,c.m,{},M_pGol(shadow,i*12345))
+  end
+  return {code=code,K=K,np=np,va=va,protos=protos}
+end
+
+local zp_xUcemQ_=_ENV or getfenv() or _G
+local proto=buildProto(P_qUoyY,pHoNlEgC,yQ__MH,mBOsGQ_,0)
+if not proto then return function() end end
+local main=iK_h_Dj__vu(proto,zp_xUcemQ_,{})
+if type(main)~='function' then return function() end end
+return main()
