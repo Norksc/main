@@ -1,0 +1,239 @@
+--[=[ 6b46d106bb286b9e ]=]
+local A_iTs_pLrA="e7ddd502579d8bf17af95a049a09e94e"
+local ZkWAOpMN_z=bit32 and bit32.bxor or function(a,b)local r,p=0,1 for i=0,31 do local x,y=a%2,b%2 if x~=y then r=r+p end a,b=(a-x)/2,(b-y)/2 p=p*2 end return r end
+local AkrwK_DtoZlq_dp=bit32 and bit32.band or function(a,b)local r,p=0,1 for i=0,31 do local x,y=a%2,b%2 if x==1 and y==1 then r=r+p end a,b=(a-x)/2,(b-y)/2 p=p*2 end return r end
+local iEN__l_oLVQ_=bit32 and bit32.bor or function(a,b)local r,p=0,1 for i=0,31 do local x,y=a%2,b%2 if x==1 or y==1 then r=r+p end a,b=(a-x)/2,(b-y)/2 p=p*2 end return r end
+local oDz_UUAQaLa=bit32 and bit32.bnot or function(a)return 4294967295-AkrwK_DtoZlq_dp(a,4294967295)end
+local CNuVV_KmL=bit32 and bit32.lshift or function(a,n)return AkrwK_DtoZlq_dp(a*(2^n),4294967295)end
+local DGyEEn_u_o=bit32 and bit32.rshift or function(a,n)return math.floor(a/(2^n))end
+local UctSlVY_JER=function(x,n)n=n%32 return iEN__l_oLVQ_(CNuVV_KmL(x,n),DGyEEn_u_o(x,32-n))end
+local WKQD_hS_T,c__XiKh_,JeUShgekIuzdI=string.byte,string.char,math.floor
+local unpack=unpack or table.unpack
+local _=(function()end)()
+
+local mzF_rDs_Rt="\155\000\000\000\244-\225\000\180\000\211\154\182\000\204\001\131\220\204\000F\001\239\148G\000\239\000\139\010\236\000\004\001m\222\005\000\159\000\201\034\157\0001\000\004\1401\000\201\000\136=\207\000\231\000\2230\230\000\009\0002\012\014\001\034\000+\208 \000\205\000\212\232\206\000\232\000\148j\227\000D\000FvM\000O\000d\194L\000J\000>!L\000a\000#0`\000\210\000\019+\216\001\194\000:\139\195\000q\000\244\238r\000\131\001\233@\140\000\128\000w\133\130\000\145\000\131\147\145\000\092\000z}]\000\172\000\127\165\173\000\007\000\135g\013\001,\000w\217\034\000`\000\161\129d\000[\001\183\230R\000y\000\235\202w\000\163\000&\029\174\000\225\000.\232\238\000\180\000\223\152\177\000\207\000\159\222\206\000D\000\184\212E\000\239\000\210K\255\001\002\000w\217\012\000\159\000\197#\155\0007\001\201I\034\000\201\000H\250\219\000\231\000\1936\226\000\009\000:\009\024\000 \000f\1483\000\205\000\141\171\202\000\224\000\132l\229\000F\000\139\178G\000O\000\180\005N\000H\000; \092\001c\00046t\000\210\000Jj\214\000\214\001`\204\215\000q\000\229\233f\000\135\000\233E\144\000\128\000\183D\132\000\145\000CP\144\000\092\000z|]\000\172\000z\165\180\001\005\000\207&\010\000.\000 \158/\000`\000\184\129y\001]\000m&\092\000y\000:\012}\000\167\001&\031\185\000\225\000s\172\227\000\182\000\207\153\183\000\205\000\136\217\214\000D\000\228\147A\000\235\001\154\013\226\000\000\000\237[\028\000\159\000I\164\156\0001\000\132\0147\000\201\000\005\187\203\000\231\000\2187\250\001\010\0007\012\008\000 \000+\215\034\000\205\000\214\232\199\001\227\000\003\234\227\000D\000\215\244A\000K\001\249CQ\000H\000.'J\000c\000#1e\000\210\000\022-\211\000\192\000-\141\195\000q\000mi{\001\131\000s\197\139\000\128\000\251\002\134\000\151\001\014\020\140\000\092\000wx|\000\172\000a\161\171\000\007\000\143l\010\000.\000m\212\015\000`\000-\007e\000]\000:fZ\000y\000fJz\000\163\000.\030\179\001\229\0004\233\237\000\180\000\211\158\178\000\201\001\146\218\192\000D\0005PX\000\239\000Z\192\254\000\000\000\237T \000\159\000G\169\150\0003\000\212H6\000\203\000E\251\204\000\231\000\2236\228\000\009\0002\010\029\001$\000\230\023\002\000\205\000\019)\206\000\224\000\017\234\195\001@\000\156\182Q\000O\000\168\003I\000^\0013%[\000a\000.5r\000\210\000\219\225\193\000\192\000\253M\196\000s\000hht\000\135\000d\198\132\000\128\000\162B\152\001\151\000TT\134\000\092\000fzZ\000\168\001r\160\179\000\007\000O\163\024\000.\000\173\0211\000`\000-\007d\000]\000z&Z\000y\000&\010z\000\163\000.\030\135\001\229\000\238+\236\000\180\000\207\158\183\000\205\000\154\217\212\001@\000\239\145G\000\239\000\139\013\233\000\004\001m\219\026\000\159\000\201%\157\0001\000\004\1376\000\201\000\1468\210\000\231\000\1955\224\000\013\001:\008\004\000 \000&\219\005\000\205\000\195\234\206\000\226\000\148j\230\000D\000Kv@\000O\000q\192R\001M\000>&K\000a\000#4e\000\210\000\019/\216\001\197\000-\143\195\000q\000\244\234v\000\161\001\227D\129\000\167\000g\143\134\000\147\000\181\155\147\000\092\000jx_\000\174\000\127\163\171\000\007\000\148d\006\000.\000"
+local kUEokYANgiK_v="(\000\000\000\1594\000\000\000\251\208\152\162\182\026\000\000\000\229\157\162\183\222d\237\167R\000\000\000\232\249\248\143/\155V\021\209(\238fc\000\000\000,\006n\196Y\167\228>\225e\000\000\000\140\242M\209\026\000\000\000\129\028\133c-\2506\213\228)\183\000\000\000y\203>m\173A\178\141\236\1292\000\000\000\204\018P\132\025\203\000\000\000M5\225\025\250\254\158y\133\169\232\210\031\128\000\000\000L\172D\141\188\2145\208\225XS\000\000\000\011\223\029'Q\157V\181\000\000\000\019\246\200\185g\177d\000\000\000\231\219\139Y\209\254\252\129W\128\173\233\219\214OM\155La%\023s/\244\246!\012Hzw\092\239f4\000\000\0006!v[\215\213\145\163\174\219v\0300egUX-\128\008\160\247\217\219\214\163\014\134ww\165pn\000\000\000#i\216J\166\245/\203\242\021\000\000\000\1783\184J\025\132(\185\000\000\000M\209=q\146b\182ge\148\218\006\2272!\034\152\215\000\000\000\217\180j\135Zb\002\206\002%FXV \144Y<\134\000\000\000}\140t\179\159\245\002\239\209\138\141\185\221m\236Y]\000\000\000\015\246-,L\134Z`9\180\000\000\000o\175\175\214\177\179\158\2275\226\207\175\249\092@\000\000\000\028M\134Mk8*\020d\196P\167\207;\000\000\000\152\127\181\148\230\227\239\154,\165\147\145Fk/\029\016\149\247FDi-\031\018g\254\002tv2\000\013x\213\025\236%Q\000\000\000exp\015\170i\245\147wo\000\000\000 \028t\213\243l\000\000\000\164\224P\212\018p\175I\133\233\210\208}\245\004J\150S\226o\175\000\000\000!\139`(\226 \198\234\151Z\140\254\200\213\221\162\007G1\000\000\000\007\218\149I\167pJ"
+local LkDHQ_Vhw_o_MZl="\000\000\010"
+local Mk_VWaOhhHJ_PRK="$\027\030\003\001#\026\016\013\020\010\019'\015\024\031\011\029\009\008\023&\007\034!\025\018\012\021\006\000 \002\017\005%\028\014\022\004"
+local abkTN_W_ry_O_="y\163\225\180\205D\239\000\1593\201\231\009 \205\224DOHa\210\192q\135\128\147\092\172\007.`_"
+local u_bNY_H_FmSSmyz="0\029Ykf\019\1906\199\137U\176aL1\231"
+local gCgN_U_ihVqp_Tl={{b="\005\000\000\000\244.\225\000\180\000\194\153\181\000\205\000\143\221\207\000F\000\248\151E\000\239\000\129\008\238\000\000\000",c="\002\000\000\000\1595\000\000\000\236\195\156\169\190\182\018\000\000\000\247\132\183\186\212x\190,M\148{\162\129\253n",m="\000\000\003"},}
+local _=not not true
+
+local delVD____nLnS={}
+for i=1,#Mk_VWaOhhHJ_PRK do delVD____nLnS[WKQD_hS_T(Mk_VWaOhhHJ_PRK,i)]=i-1 end
+
+local function cC_t_BnsWWGWEu()
+  local ok=true
+  if rawget(_G,'debug')then
+    local d=rawget(_G,'debug')
+    if type(d)=='table'then
+      if rawget(d,'getinfo')or rawget(d,'traceback')then ok=false end
+    end
+  end
+  if rawget(_G,'hookfunction')then ok=false end
+  if rawget(_G,'getgc')then ok=false end
+  return ok
+end
+
+local function iq_si__Rm_w_nZ(data,expected)
+  local h=0
+  for i=1,#data do
+    h=ZkWAOpMN_z(iEN__l_oLVQ_(CNuVV_KmL(h,5),DGyEEn_u_o(h,27)),WKQD_hS_T(data,i))
+  end
+  return AkrwK_DtoZlq_dp(h,65535)
+end
+
+local function gGU_UI_OmKV(data,key,sh,dp)
+  local r,kl={},#key
+  local st=sh
+  for i=1,#data do
+    local b=WKQD_hS_T(data,i)
+    local ki=((i-1)%kl)+1
+    local k=WKQD_hS_T(key,ki)
+    local m1=AkrwK_DtoZlq_dp(st*31337+i*7919,255)
+    local m2=AkrwK_DtoZlq_dp(dp*65537+i*13,255)
+    local d=ZkWAOpMN_z(ZkWAOpMN_z(ZkWAOpMN_z(b,k),m1),m2)
+    r[i]=c__XiKh_(d)
+    st=ZkWAOpMN_z(iEN__l_oLVQ_(CNuVV_KmL(st,5),DGyEEn_u_o(st,27)),b)
+  end
+  return table.concat(r)
+end
+
+local function NsWL_fp__sEIDYA(data,cx,sh)
+  local K,p,cxl={},1,#cx
+  local st=sh
+  local function rb()local b=WKQD_hS_T(data,p)p=p+1 st=ZkWAOpMN_z(st,b)return b end
+  local function r32()local a,b,c,d=rb(),rb(),rb(),rb()return AkrwK_DtoZlq_dp(a+CNuVV_KmL(b,8)+CNuVV_KmL(c,16)+CNuVV_KmL(d,24),4294967295)end
+  local n=r32()
+  for ci=1,n do
+    local xi=((ci-1)%%cxl)+1
+    local em=AkrwK_DtoZlq_dp(ZkWAOpMN_z(st,ci*17),255)
+    local t=ZkWAOpMN_z(ZkWAOpMN_z(rb(),WKQD_hS_T(cx,xi)),em)
+    if t==0 then K[ci]=nil
+    elseif t==1 then K[ci]=ZkWAOpMN_z(ZkWAOpMN_z(rb(),WKQD_hS_T(cx,(ci%cxl)+1)),em)~=0
+    elseif t==2 then
+      local bytes={}
+      for j=0,7 do bytes[j+1]=ZkWAOpMN_z(ZkWAOpMN_z(rb(),WKQD_hS_T(cx,((ci-1+j)%cxl)+1)),em)end
+      local sign=(AkrwK_DtoZlq_dp(bytes[8],128)~=0)and -1 or 1
+      bytes[8]=AkrwK_DtoZlq_dp(bytes[8],127)
+      local exp=CNuVV_KmL(AkrwK_DtoZlq_dp(bytes[8],4),DGyEEn_u_o(AkrwK_DtoZlq_dp(bytes[7],240),4))-1023
+      local mant=AkrwK_DtoZlq_dp(bytes[7],15)
+      for j=6,1,-1 do mant=mant*256+bytes[j]end
+      mant=mant/(2^52)
+      if exp==-1023 then K[ci]=mant==0 and 0 or sign*(2^-1022)*mant
+      elseif exp==1024 then K[ci]=mant==0 and sign*(1/0)or 0/0
+      else K[ci]=sign*(2^exp)*(1+mant)end
+    elseif t==3 then
+      local sl=ZkWAOpMN_z(r32(),WKQD_hS_T(cx,xi))
+      local ch={}
+      for j=1,sl do ch[j]=c__XiKh_(ZkWAOpMN_z(ZkWAOpMN_z(rb(),WKQD_hS_T(cx,((ci-1+j-1)%cxl)+1)),em))end
+      K[ci]=table.concat(ch)
+    end
+    st=UctSlVY_JER(ZkWAOpMN_z(st,7),ci)
+  end
+  return K
+end
+
+local function bfiQ___nqnWwRE(proto,e,u)
+  return function(...)return LQtqlp_KRsKW(proto,e,u,{...})end
+end
+
+local function LQtqlp_KRsKW(proto,spFnK__pAh_O,RZFLN___hKT,nOMwMT_E_U)
+  local iA_CZZwxWg_={}
+  local tBU_Ax____Iw={}
+  local e_xx_Je_=1
+  local sqZ_h__WgK_g=0x12345678
+  local w_ByPbuqsXBowcm=0xDEADBEEF
+  local top=0
+  local bMh_Tp_a__nx_=proto.code
+  local bpBt__Vs=proto.K
+  local PUdmIGNTXHIL=proto.protos
+  local np,va=proto.np,proto.va
+
+  for i=1,np do iA_CZZwxWg_[i-1]=nOMwMT_E_U[i]end
+  if va then local v={}for i=np+1,#nOMwMT_E_U do v[#v+1]=nOMwMT_E_U[i]end nOMwMT_E_U=v end
+
+  local ni=#bMh_Tp_a__nx_
+  while e_xx_Je_<=ni do
+    local ins=bMh_Tp_a__nx_[e_xx_Je_]
+    local op,A,B,C=ins[1],ins[2],ins[3],ins[4]
+    e_xx_Je_=e_xx_Je_+1
+    sqZ_h__WgK_g=ZkWAOpMN_z(iEN__l_oLVQ_(CNuVV_KmL(sqZ_h__WgK_g,5),DGyEEn_u_o(sqZ_h__WgK_g,27)),op*31+A*17+e_xx_Je_)
+    w_ByPbuqsXBowcm=ZkWAOpMN_z(UctSlVY_JER(w_ByPbuqsXBowcm,13),sqZ_h__WgK_g)
+    if op==0 then
+    elseif op==1 then iA_CZZwxWg_[A]=bpBt__Vs[B+1]
+    elseif op==2 then for i=A,A+B do iA_CZZwxWg_[i]=nil end
+    elseif op==3 then iA_CZZwxWg_[A]=B~=0 if C~=0 then e_xx_Je_=e_xx_Je_+1 end
+    elseif op==4 then iA_CZZwxWg_[A]=spFnK__pAh_O[bpBt__Vs[B+1]]
+    elseif op==5 then spFnK__pAh_O[bpBt__Vs[B+1]]=iA_CZZwxWg_[A]
+    elseif op==6 then iA_CZZwxWg_[A]=iA_CZZwxWg_[B]
+    elseif op==7 then iA_CZZwxWg_[B]=iA_CZZwxWg_[A]
+    elseif op==8 then iA_CZZwxWg_[A]=RZFLN___hKT[B+1].v
+    elseif op==9 then RZFLN___hKT[B+1].v=iA_CZZwxWg_[A]
+    elseif op==10 then local k=C>=256 and bpBt__Vs[C-255]or iA_CZZwxWg_[C]iA_CZZwxWg_[A]=iA_CZZwxWg_[B][k]
+    elseif op==11 then local k=B>=256 and bpBt__Vs[B-255]or iA_CZZwxWg_[B]local v=C>=256 and bpBt__Vs[C-255]or iA_CZZwxWg_[C]iA_CZZwxWg_[A][k]=v
+    elseif op==12 then iA_CZZwxWg_[A]={}
+    elseif op==13 then iA_CZZwxWg_[A]=iA_CZZwxWg_[B]+iA_CZZwxWg_[C]
+    elseif op==14 then iA_CZZwxWg_[A]=iA_CZZwxWg_[B]-iA_CZZwxWg_[C]
+    elseif op==15 then iA_CZZwxWg_[A]=iA_CZZwxWg_[B]*iA_CZZwxWg_[C]
+    elseif op==16 then iA_CZZwxWg_[A]=iA_CZZwxWg_[B]/iA_CZZwxWg_[C]
+    elseif op==17 then iA_CZZwxWg_[A]=iA_CZZwxWg_[B]%iA_CZZwxWg_[C]
+    elseif op==18 then iA_CZZwxWg_[A]=iA_CZZwxWg_[B]^iA_CZZwxWg_[C]
+    elseif op==19 then iA_CZZwxWg_[A]=-iA_CZZwxWg_[B]
+    elseif op==20 then iA_CZZwxWg_[A]=not iA_CZZwxWg_[B]
+    elseif op==21 then iA_CZZwxWg_[A]=#iA_CZZwxWg_[B]
+    elseif op==22 then local t={}for i=B,C do t[#t+1]=iA_CZZwxWg_[i]end iA_CZZwxWg_[A]=table.concat(t)
+    elseif op==23 then if(iA_CZZwxWg_[B]==iA_CZZwxWg_[C])~=(A~=0)then e_xx_Je_=e_xx_Je_+1 end
+    elseif op==24 then if(iA_CZZwxWg_[B]<iA_CZZwxWg_[C])~=(A~=0)then e_xx_Je_=e_xx_Je_+1 end
+    elseif op==25 then if(iA_CZZwxWg_[B]<=iA_CZZwxWg_[C])~=(A~=0)then e_xx_Je_=e_xx_Je_+1 end
+    elseif op==26 then e_xx_Je_=e_xx_Je_+B
+    elseif op==27 then if iA_CZZwxWg_[A]then e_xx_Je_=B end
+    elseif op==28 then if not iA_CZZwxWg_[A]then e_xx_Je_=B end
+    elseif op==29 then
+      local f=iA_CZZwxWg_[A]
+      local args={}
+      local na=B-1 if B==0 then na=top-A end
+      for i=1,na do args[i]=iA_CZZwxWg_[A+i]end
+      local rets={f(unpack(args,1,na))}
+      if C==0 then for i=1,#rets do iA_CZZwxWg_[A+i-1]=rets[i]end top=A+#rets-1
+      else for i=1,C-1 do iA_CZZwxWg_[A+i-1]=rets[i]end end
+    elseif op==30 then
+      if B==0 then local r={}for i=A,top do r[#r+1]=iA_CZZwxWg_[i]end return unpack(r)
+      elseif B==1 then return
+      else local r={}for i=1,B-1 do r[i]=iA_CZZwxWg_[A+i-1]end return unpack(r,1,B-1)end
+    elseif op==31 then
+      local p=PUdmIGNTXHIL[B+1]
+      local nU={}
+      for i,uv in ipairs(p.upvals or{})do
+        if uv.instack then nU[i]={v=iA_CZZwxWg_[uv.idx]}
+        else nU[i]=RZFLN___hKT[uv.idx+1]end
+      end
+      iA_CZZwxWg_[A]=bfiQ___nqnWwRE(p,spFnK__pAh_O,nU)
+    elseif op==32 then
+      local n=B-1 if B==0 then n=#nOMwMT_E_U end
+      for i=1,n do iA_CZZwxWg_[A+i-1]=nOMwMT_E_U[i]end
+      if B==0 then top=A+n-1 end
+    elseif op==33 then iA_CZZwxWg_[A+1]=iA_CZZwxWg_[B]iA_CZZwxWg_[A]=iA_CZZwxWg_[B][bpBt__Vs[C+1]]
+    elseif op==34 then iA_CZZwxWg_[A]=iA_CZZwxWg_[A]-iA_CZZwxWg_[A+2]e_xx_Je_=e_xx_Je_+B
+    elseif op==35 then
+      local step=iA_CZZwxWg_[A+2]
+      local idx=iA_CZZwxWg_[A]+step
+      local lim=iA_CZZwxWg_[A+1]
+      iA_CZZwxWg_[A]=idx
+      if step>0 then if idx<=lim then iA_CZZwxWg_[A+3]=idx e_xx_Je_=e_xx_Je_+B end
+      else if idx>=lim then iA_CZZwxWg_[A+3]=idx e_xx_Je_=e_xx_Je_+B end end
+    elseif op==36 then
+      local f,s,var=iA_CZZwxWg_[A],iA_CZZwxWg_[A+1],iA_CZZwxWg_[A+2]
+      local r={f(s,var)}
+      for i=1,C do iA_CZZwxWg_[A+2+i]=r[i]end
+      if r[1]~=nil then iA_CZZwxWg_[A+2]=r[1]else e_xx_Je_=e_xx_Je_+1 end
+    elseif op==37 then
+      for i=#tBU_Ax____Iw,1,-1 do
+        local u=tBU_Ax____Iw[i]
+        if u.idx>=A then u.v=iA_CZZwxWg_[u.idx]u.closed=true table.remove(tBU_Ax____Iw,i)end
+      end
+    elseif op==38 then iA_CZZwxWg_[A]=iA_CZZwxWg_[B]
+    else
+      sqZ_h__WgK_g=ZkWAOpMN_z(sqZ_h__WgK_g,0xDEAD)
+      error('Unknown opcode: '..op)
+    end
+  end
+end
+
+local function buildProto(bc,cn,mt,ch,sh)
+  sh=sh or 0
+  local ins=gGU_UI_OmKV(bc,abkTN_W_ry_O_,sh,0)
+  local K=NsWL_fp__sEIDYA(cn,u_bNY_H_FmSSmyz,sh)
+  local p=1
+  local function rb()local b=WKQD_hS_T(ins,p)p=p+1 return b end
+  local function r32()local a,b,c,d=rb(),rb(),rb(),rb()return AkrwK_DtoZlq_dp(a+CNuVV_KmL(b,8)+CNuVV_KmL(c,16)+CNuVV_KmL(d,24),4294967295)end
+  local function rs16()local a,b=rb(),rb()local v=a+b*256 return v>=32768 and v-65536 or v end
+  local ni=r32()
+  if ni>1000000 then error('Invalid')end
+  local code={}
+  for i=1,ni do
+    local xIdx=((i-1)%#abkTN_W_ry_O_)+1
+    local shm=ZkWAOpMN_z(AkrwK_DtoZlq_dp(sh+i*31337,255),i)
+    local opEnc=rb()
+    local opDec=ZkWAOpMN_z(ZkWAOpMN_z(opEnc,WKQD_hS_T(abkTN_W_ry_O_,xIdx)),shm)
+    local realOp=delVD____nLnS[opDec]
+    if realOp==nil then realOp=opDec end
+    local aVal=ZkWAOpMN_z(ZkWAOpMN_z(rb(),WKQD_hS_T(abkTN_W_ry_O_,(i%#abkTN_W_ry_O_)+1)),shm)
+    local bVal=ZkWAOpMN_z(rs16(),WKQD_hS_T(abkTN_W_ry_O_,((i+1)%#abkTN_W_ry_O_)+1))
+    local cVal=ZkWAOpMN_z(rs16(),WKQD_hS_T(abkTN_W_ry_O_,((i+2)%#abkTN_W_ry_O_)+1))
+    code[i]={realOp,aVal,bVal,cVal}
+  end
+  local np=WKQD_hS_T(mt,1)or 0
+  local va=(WKQD_hS_T(mt,2)or 0)~=0
+  local protos={}
+  for i,c in ipairs(ch or{})do
+    protos[i]=buildProto(c.b,c.c,c.m,{},ZkWAOpMN_z(sh,i*12345))
+  end
+  return{code=code,K=K,np=np,va=va,protos=protos}
+end
+
+if not cC_t_BnsWWGWEu()then return function()end end
+local spFnK__pAh_O=_ENV or getfenv()or _G
+local proto=buildProto(mzF_rDs_Rt,kUEokYANgiK_v,LkDHQ_Vhw_o_MZl,gCgN_U_ihVqp_Tl,0xB317003)
+return bfiQ___nqnWwRE(proto,spFnK__pAh_O,{})()
