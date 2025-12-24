@@ -1,0 +1,473 @@
+--[[
+    ╔═══════════════════════════════════════════════════════════════╗
+    ║                      DRK V3 PROTECTION                        ║
+    ║                   discord.gg/W3VwkUj6kf                       ║
+    ║           Advanced Luau VM Obfuscation Technology             ║
+    ║                    Anti-Decompile System                      ║
+    ╚═══════════════════════════════════════════════════════════════╝
+--]]
+
+-- [DEV MODE ENABLED]
+local __DEV__ = true
+local function __LOG__(msg) if __DEV__ then print('[VM] ' .. tostring(msg)) end end
+
+local C_BF_Wt_vQ_ = bit32 and bit32.bxor or function(a,b)
+    a,b = a%%4294967296, b%%4294967296
+    local r,p = 0,1
+    for _=0,31 do
+        local x,y = a%%2, b%%2
+        if x~=y then r=r+p end
+        a,b = (a-x)/2, (b-y)/2
+        p = p*2
+    end
+    return r
+end
+
+local Bde_yKB_ClGrvxv = bit32 and bit32.band or function(a,b)
+    a,b = a%%4294967296, b%%4294967296
+    local r,p = 0,1
+    for _=0,31 do
+        local x,y = a%%2, b%%2
+        if x==1 and y==1 then r=r+p end
+        a,b = (a-x)/2, (b-y)/2
+        p = p*2
+    end
+    return r
+end
+
+local rXuPeb_kqTDH = bit32 and bit32.bor or function(a,b)
+    a,b = a%%4294967296, b%%4294967296
+    local r,p = 0,1
+    for _=0,31 do
+        local x,y = a%%2, b%%2
+        if x==1 or y==1 then r=r+p end
+        a,b = (a-x)/2, (b-y)/2
+        p = p*2
+    end
+    return r
+end
+
+local Vp_YbH_LWqGZ = bit32 and bit32.lshift or function(a,n) return (a*(2^n))%4294967296 end
+local iIP_O__e_BCZt_BqBj = bit32 and bit32.rshift or function(a,n) return math.floor((a%4294967296)/(2^n)) end
+local ubhWc_FZI_e = function(x,n) n=n%8; return Bde_yKB_ClGrvxv(rXuPeb_kqTDH(Vp_YbH_LWqGZ(x,n),255),iIP_O__e_BCZt_BqBj(Bde_yKB_ClGrvxv(x,8-n),255)) end
+local J_vfOfzh_KR_bhR_LD = function(x,n) n=n%8; return Bde_yKB_ClGrvxv(rXuPeb_kqTDH(iIP_O__e_BCZt_BqBj(x,n),255),Vp_YbH_LWqGZ(Bde_yKB_ClGrvxv(x,8-n),255)) end
+local by_jmuWtId = string.byte
+local mY_DEz_bYgn_uRcV = string.char
+local unpack = unpack or table.unpack
+
+local m_XRyXMh = "3KRD\155\000\000\000\145\134F#\166eK\162A\164.|U\170\008\215Yp\140\1480\030\160%\205\1427U\133\152\149I\221\245 3\226Q\023\162\186\249\014BQ+\172\255\194v\179\237\138\214;Ag\154\221\157\137\139I; \193\248\246\235\181\181W\245\135\170\166p\242k\163\171\133=s\023\229*\148W\225\222\222_\011\027io\195D\140[\163\148\028\232_-\245\230\018\158\169\229\215\163\243\183C\136 \216\028m\180\173B\193\137\236Lh\226\007\201o\092U\223\193)\199\092!|\233:L'V\194lw\172'\129\135}D?<&\211\185\153\239~\0927\134\006\133K\183\133G\138\180'h\250\236\212\172-\183\0314bH'Zc\212\250\021\204o\229/\192\152\215@\254\146AA}\133\0138\252S\139tZ\183\153\186\129\252\216\001\189\137\208\217v\150\001\145\173\227k`\254\201:\202]4\181\200\168\240\0283}\183\015\240\190\227\174\169h\132\166\167q\238j\150\200=\018\195\132\235\018\235[\142\025\159\026\1317\135\178\153\150m^:\150\203\010\246]<e]\205UE\003\015\194i4Lr\181\135*g#a\162\151]PMQ\171T:%NM\019\236\157\242]\177L\144\140\193\217,\169H\161\016\203n\185i\208\195\188z\169\020\247\156\157\170)X\010\198\242i4\209\240\233{\228Ui\1545I'4\245\193\008\026\027\162\240\189\212\144\238\161o\207\187\163L\008/\249\018\139X\029\204\233[4\021\031\166\155\187\150\202\092\022\241\011Zfq\159\009\012.#?\171\218W\020\131k*<\213\157\205\031k\180I\141s2\137\1921\254\232d\226\019\026\171\173h\172\015\253uL\191\210\161a`\204\253m\243\162@\211\034%Mo\003\140\1372JDW\182\171L\168\006}\212\234\177\131S9\0247}\134gj\157\197\022\147\180 \151\195:Qy\161\157\133\180\192r\193\158\238C\169\184'*\214i\244\177\186mj\177L\178\022\1315\202\234\165x6@\242Z\240\245\211\244\230\167\170\167C\172\164%S\242\245\250\130\213\196\237.\242[R\193\190$\011\206a\207\229\1367y \176M\192\214\134\138j\009\010<\012v5\232\133\147\209F\251\220B\025\191|g\152\236\221KRx\253\139\142ge%\231\170\253\230\129\133$\134N\143\203\139B6\236r\200\184D\2216\197\240\014\159\175\193\234\233r\157#=q\185\252\199\140\127Y\016\157\191\020\233\186\013\247C\132\160\176#_;9\237\178kw\212Qp\252\208\014\136\209\153\2040m\003~\181\163\213\215N\030\203\127\196\207\019L\128$Q\204\159Z]/r\188\005\223\235\159b0\180\253Fr\021\179\092\156\219Jc\034\232\134\250H\034\177JPI\141\027\244U]\236!\245\238#\150hAX(\209\19494u\240\019\212/\011\159\001\237p\244R\239e.\0242\236\145\014\031\233\129\210\212\224\029 \201lU\143T0\135\137\237/\2019U\217/J\214\009\146?\209\214^\133\177Q\019\225\213\128M\007\006f\191K>\129\245e\167\239\206%1j\212\002sd\157\173_\223\157{T\2530\163NTv\140d\013\209\241\241\195\128;b\202&[\151\003\178\202\223\128}\200Wv[ZY\166\028\155\138L#3\244\217\244\167NR\171\211\029\189\193suo\169\016\011t\009\220\222j\166G\245\138,\252}r\2220\006\225\202\002\244\022\224H\137\133\013\158%\154Q\027 \024\231"
+local Jpmgmwtkk = "(\000\000\000\031qC\1330hw\165\164\151~D\170\127#\189s\231Z\249\171\147R\245\164\154Blrer/\134\1573\231\166\015\178]f\014\206\194s\250kj9O\250x\021\021\162\092\164~\242\009xO\176\192-_A\011C\228\231\185\240\220\240\194\1284\254\172,z\208qu\178O\135\183=[4\017\192zk\130\243\002\232\128\151^\219h\249\153{\253o\172\019P\0251sq\009\023\140\239L\027\031PJjEl\239w\145\187%\151C\203I]\186\034\239\005\1431s\006x&\144\149O\021\237\134\186\023\175v\243\232\008\253\176X\010\034\024\027\165'\220\146_\0172\201\210\238\031\142\192\183\149=\195u\243\179LS\199%\179\137\188D\242\191&0\190\201;?\133\250iZ\147\006S\148\013-\133\215D\2154~\007\167b\133\012\092\228\128\192X0km\181M\242\092\231\242< \190!\134\023\141\147\161+\005-\216\163\176\178\163MF\210\146?\184\207!\204j\235rNm\139\196\169\208\217\2272\168\223N\143\148\220\174%\178\231\014\208\027\146u\031Nc5\224\025\244\219\238\092a\165\245yt\160\009\029\203T\149\130\247\154\249j{\020\233)\231r-\016\1553L\164'\015\162\219\241\014\217]\134\142y\225/\210\193\225\243J\135R \247(\156\149-\2229M$\162\136\219\019#A$\185\200\092\202\1733\137E9\034\217\204\195?=CO\132\180\027\164\029\218m\1431\218\150,\193\002\137\191\222\156\212\218\172q\143t\244\237\134\157j\158\186\1621b\233\026\142/\163\182*\165\129\207\162\140+\001\214^.:\012\134]\132\220\230\014\010\207\230:\014\221\180e0\158\005\230\005\013\136c->\203K_3\023\226\248\034\244\239\136\008\140R"
+local k_F__yOs__K__va_ = "\129\150\189'"
+local lw_YJ_EFoXpCexqs = "\031\001\008\007\002\018\011\012\003\005\029\020\016\022\010!'\034\023\013\027\009\026\014\000\017% \028\015#\021\024\004\030\006\025&\019$"
+local VYgATyGJjnVe_uv = "\158l\184\236;\176\2547{\165\178.\239\1985\001\015\239\243|k\023\127\172\129$q\143\141\197\209\241"
+local X_ukcMgfQX_pZNRSgrn = 1766542869045527239
+
+local avkmxKCAPFhETa = {
+    {b="3KRD\005\000\000\000\145\158F\177e\022\197\155{>d\253\161\208\140\131wX\139\028\152\227<\248\195@\139\153;\148",c="\002\000\000\000\031yC\254\223\181\190uC\030/\135\228\128c\008\232\151\198\250\149\1734O*\212d\1979\176",m="\129\150\245'"},
+}
+
+local MmDT_i_GIz_Wg = {}
+for i=1,#lw_YJ_EFoXpCexqs do MmDT_i_GIz_Wg[by_jmuWtId(lw_YJ_EFoXpCexqs,i)] = i-1 end
+
+local function cPjgM_h_Mqjj(enc, pos, st, key)
+    local l1 = Bde_yKB_ClGrvxv((pos*7 + iIP_O__e_BCZt_BqBj(pos,3)), 255)
+    local l2 = Bde_yKB_ClGrvxv(iIP_O__e_BCZt_BqBj(st[1], (pos%4)*8), 255)
+    local l3 = by_jmuWtId(key, (pos%32)+1) or 0
+    local stM = Bde_yKB_ClGrvxv(iIP_O__e_BCZt_BqBj(Bde_yKB_ClGrvxv(st[1], 31337), 24), 255)
+    local mx = C_BF_Wt_vQ_(enc, stM)
+    mx = J_vfOfzh_KR_bhR_LD(mx, 3)
+    local b = C_BF_Wt_vQ_(C_BF_Wt_vQ_(C_BF_Wt_vQ_(mx, l1), l2), l3)
+    st[1] = C_BF_Wt_vQ_(Bde_yKB_ClGrvxv(rXuPeb_kqTDH(Bde_yKB_ClGrvxv(st[1], 1103515245), b), 12345), pos)
+    st[1] = st[1] %% 4294967296
+    return b
+end
+
+local function ndnf_BJT_XIB(data, key, sd)
+    if not data or #data < 8 then __LOG__('Invalid bytecode'); return nil end
+    local st = {Bde_yKB_ClGrvxv(sd, 4294967295)}
+    local pos = 1
+    local function rb()
+        local b = by_jmuWtId(data, pos) or 0
+        local d = cPjgM_h_Mqjj(b, pos-1, st, key)
+        pos = pos + 1
+        return d
+    end
+    local function ru32()
+        local a,b,c,d = rb(),rb(),rb(),rb()
+        return Bde_yKB_ClGrvxv(a + Vp_YbH_LWqGZ(b,8) + Vp_YbH_LWqGZ(c,16) + Vp_YbH_LWqGZ(d,24), 4294967295)
+    end
+    local function rs16()
+        local lo,hi = rb(),rb()
+        local val = lo + hi*256
+        if val >= 32768 then val = val - 65536 end
+        return val
+    end
+
+    local magic = ru32()
+    if magic ~= 1146243891 then __LOG__('Invalid magic: '..magic); return nil end
+    local numI = ru32()
+    if numI > 1000000 then __LOG__('Too many instructions'); return nil end
+    __LOG__('Decoding '..numI..' instructions')
+
+    local ins = {}
+    for i = 1, numI do
+        local opE = rb()
+        local realOp = MmDT_i_GIz_Wg[opE]
+        if not realOp then realOp = 0 end
+        local A = rb()
+        local B = rs16()
+        local C = rs16()
+        ins[i] = {realOp, A, B, C}
+    end
+    __LOG__('Bytecode decoded successfully')
+    return ins
+end
+
+local function JmqZtvUl_(data, key, sd)
+    if not data or #data < 4 then return {} end
+    local st = {Bde_yKB_ClGrvxv(iIP_O__e_BCZt_BqBj(sd,32), 4294967295)}
+    local pos = 1
+    local consts = {}
+    local function rb()
+        local b = by_jmuWtId(data, pos) or 0
+        local d = cPjgM_h_Mqjj(b, pos-1, st, key)
+        pos = pos + 1
+        return d
+    end
+    local function ru32()
+        local a,b,c,d = rb(),rb(),rb(),rb()
+        return Bde_yKB_ClGrvxv(a + Vp_YbH_LWqGZ(b,8) + Vp_YbH_LWqGZ(c,16) + Vp_YbH_LWqGZ(d,24), 4294967295)
+    end
+
+    local numC = ru32()
+    if numC > 100000 then return {} end
+    __LOG__('Decoding '..numC..' constants')
+
+    for i = 1, numC do
+        local cT = rb()
+        if cT == 0 then
+            consts[i] = nil
+        elseif cT == 1 then
+            consts[i] = rb() ~= 0
+        elseif cT == 2 then
+            local bytes = {}
+            for j = 1, 8 do bytes[j] = rb() end
+            local sign = (Bde_yKB_ClGrvxv(bytes[8], 128) ~= 0) and -1 or 1
+            bytes[8] = Bde_yKB_ClGrvxv(bytes[8], 127)
+            local exp = rXuPeb_kqTDH(Vp_YbH_LWqGZ(bytes[8], 4), iIP_O__e_BCZt_BqBj(Bde_yKB_ClGrvxv(bytes[7], 240), 4)) - 1023
+            local mant = Bde_yKB_ClGrvxv(bytes[7], 15)
+            for j = 6, 1, -1 do mant = mant * 256 + bytes[j] end
+            mant = mant / (2^52)
+            if exp == -1023 then
+                consts[i] = (mant == 0) and 0 or (sign * (2^-1022) * mant)
+            elseif exp == 1024 then
+                consts[i] = (mant == 0) and (sign * (1/0)) or (0/0)
+            else
+                consts[i] = sign * (2^exp) * (1 + mant)
+            end
+        elseif cT == 3 then
+            local sLen = ru32()
+            if sLen > 500000 then sLen = 0 end
+            local chars = {}
+            for j = 1, sLen do chars[j] = mY_DEz_bYgn_uRcV(rb()) end
+            consts[i] = table.concat(chars)
+        else
+            consts[i] = nil
+        end
+    end
+    __LOG__('Constants decoded')
+    return consts
+end
+
+local function QEcPELe_A(proto, e, u)
+    if not proto or not proto.code then return function() end end
+    return function(...) return dvgkOSefECbXmFOXM(proto, e, u, {...}) end
+end
+
+local function dvgkOSefECbXmFOXM(proto, BF_nsa_Z, nzUBNVon_Zy___r, zI_ZeHAH)
+    if not proto or not proto.code then return end
+    local Ug_T_buEIYwd_az_ = {}
+    local openups = {}
+    local YVpuQvjo_Lz = 1
+    local top = -1
+    local lQqlJldIU = proto.code
+    local RTLCEJdlyMlaYLUR = proto.K or {}
+    local kQyibM_Mhb_baiTXdGP = proto.protos or {}
+    local nP = proto.numParams or 0
+    local isVA = proto.isVararg
+
+    for i = 1, nP do
+        Ug_T_buEIYwd_az_[i - 1] = zI_ZeHAH[i]
+    end
+    if isVA then
+        local va = {}
+        for i = nP + 1, #zI_ZeHAH do va[#va + 1] = zI_ZeHAH[i] end
+        zI_ZeHAH = va
+    end
+
+    local numI = #lQqlJldIU
+    while YVpuQvjo_Lz <= numI do
+        local ins = lQqlJldIU[YVpuQvjo_Lz]
+        if not ins then break end
+        local op = ins[1]
+        local A = ins[2]
+        local B = ins[3]
+        local C = ins[4]
+        YVpuQvjo_Lz = YVpuQvjo_Lz + 1
+
+        if op == 0 then -- NOP
+        elseif op == 1 then -- LOADK
+            Ug_T_buEIYwd_az_[A] = RTLCEJdlyMlaYLUR[B + 1]
+        elseif op == 2 then -- LOADNIL
+            for i = A, A + B do Ug_T_buEIYwd_az_[i] = nil end
+        elseif op == 3 then -- LOADBOOL
+            Ug_T_buEIYwd_az_[A] = (B ~= 0)
+            if C ~= 0 then YVpuQvjo_Lz = YVpuQvjo_Lz + 1 end
+        elseif op == 4 then -- GETGLOBAL
+            local key = RTLCEJdlyMlaYLUR[B + 1]
+            Ug_T_buEIYwd_az_[A] = BF_nsa_Z[key]
+        elseif op == 5 then -- SETGLOBAL
+            local key = RTLCEJdlyMlaYLUR[B + 1]
+            BF_nsa_Z[key] = Ug_T_buEIYwd_az_[A]
+        elseif op == 6 then -- GETUPVAL
+            local uv = nzUBNVon_Zy___r[B + 1]
+            Ug_T_buEIYwd_az_[A] = uv and uv.v
+        elseif op == 7 then -- SETUPVAL
+            local uv = nzUBNVon_Zy___r[B + 1]
+            if uv then uv.v = Ug_T_buEIYwd_az_[A] end
+        elseif op == 8 then -- GETTABLE
+            local tbl = Ug_T_buEIYwd_az_[B]
+            local key = (C >= 256) and RTLCEJdlyMlaYLUR[C - 255] or Ug_T_buEIYwd_az_[C]
+            Ug_T_buEIYwd_az_[A] = tbl and tbl[key]
+        elseif op == 9 then -- SETTABLE
+            local tbl = Ug_T_buEIYwd_az_[A]
+            local key = (B >= 256) and RTLCEJdlyMlaYLUR[B - 255] or Ug_T_buEIYwd_az_[B]
+            local val = (C >= 256) and RTLCEJdlyMlaYLUR[C - 255] or Ug_T_buEIYwd_az_[C]
+            if tbl then tbl[key] = val end
+        elseif op == 10 then -- NEWTABLE
+            Ug_T_buEIYwd_az_[A] = {}
+        elseif op == 11 then -- ADD
+            Ug_T_buEIYwd_az_[A] = (tonumber(Ug_T_buEIYwd_az_[B]) or 0) + (tonumber(Ug_T_buEIYwd_az_[C]) or 0)
+        elseif op == 12 then -- SUB
+            Ug_T_buEIYwd_az_[A] = (tonumber(Ug_T_buEIYwd_az_[B]) or 0) - (tonumber(Ug_T_buEIYwd_az_[C]) or 0)
+        elseif op == 13 then -- MUL
+            Ug_T_buEIYwd_az_[A] = (tonumber(Ug_T_buEIYwd_az_[B]) or 0) * (tonumber(Ug_T_buEIYwd_az_[C]) or 0)
+        elseif op == 14 then -- DIV
+            local d = tonumber(Ug_T_buEIYwd_az_[C]) or 1; if d == 0 then d = 1 end
+            Ug_T_buEIYwd_az_[A] = (tonumber(Ug_T_buEIYwd_az_[B]) or 0) / d
+        elseif op == 15 then -- MOD
+            local d = tonumber(Ug_T_buEIYwd_az_[C]) or 1; if d == 0 then d = 1 end
+            Ug_T_buEIYwd_az_[A] = (tonumber(Ug_T_buEIYwd_az_[B]) or 0) % d
+        elseif op == 16 then -- POW
+            Ug_T_buEIYwd_az_[A] = (tonumber(Ug_T_buEIYwd_az_[B]) or 0) ^ (tonumber(Ug_T_buEIYwd_az_[C]) or 0)
+        elseif op == 17 then -- IDIV
+            local d = tonumber(Ug_T_buEIYwd_az_[C]) or 1; if d == 0 then d = 1 end
+            Ug_T_buEIYwd_az_[A] = math.floor((tonumber(Ug_T_buEIYwd_az_[B]) or 0) / d)
+        elseif op == 18 then -- UNM
+            Ug_T_buEIYwd_az_[A] = -(tonumber(Ug_T_buEIYwd_az_[B]) or 0)
+        elseif op == 19 then -- NOT
+            Ug_T_buEIYwd_az_[A] = not Ug_T_buEIYwd_az_[B]
+        elseif op == 20 then -- LEN
+            local v = Ug_T_buEIYwd_az_[B]
+            Ug_T_buEIYwd_az_[A] = (type(v)=='table' or type(v)=='string') and #v or 0
+        elseif op == 21 then -- CONCAT
+            local parts = {}
+            for i = B, C do parts[#parts+1] = tostring(Ug_T_buEIYwd_az_[i] or '') end
+            Ug_T_buEIYwd_az_[A] = table.concat(parts)
+        elseif op == 22 then -- EQ
+            if (Ug_T_buEIYwd_az_[B] == Ug_T_buEIYwd_az_[C]) ~= (A ~= 0) then YVpuQvjo_Lz = YVpuQvjo_Lz + 1 end
+        elseif op == 23 then -- LT
+            local lhs, rhs = Ug_T_buEIYwd_az_[B], Ug_T_buEIYwd_az_[C]
+            if (lhs < rhs) ~= (A ~= 0) then YVpuQvjo_Lz = YVpuQvjo_Lz + 1 end
+        elseif op == 24 then -- LE
+            local lhs, rhs = Ug_T_buEIYwd_az_[B], Ug_T_buEIYwd_az_[C]
+            if (lhs <= rhs) ~= (A ~= 0) then YVpuQvjo_Lz = YVpuQvjo_Lz + 1 end
+        elseif op == 25 then -- JMP
+            YVpuQvjo_Lz = YVpuQvjo_Lz + B
+        elseif op == 26 then -- JMPIF
+            if Ug_T_buEIYwd_az_[A] then YVpuQvjo_Lz = B end
+        elseif op == 27 then -- JMPIFNOT
+            if not Ug_T_buEIYwd_az_[A] then YVpuQvjo_Lz = B end
+        elseif op == 28 then -- CALL
+            local func = Ug_T_buEIYwd_az_[A]
+            if type(func) == 'function' then
+                local args = {}
+                local nargs = B - 1
+                if B == 0 then nargs = top - A end
+                if nargs < 0 then nargs = 0 end
+                for i = 1, nargs do args[i] = Ug_T_buEIYwd_az_[A + i] end
+                local ok, results = pcall(function() return {func(unpack(args, 1, nargs))} end)
+                if ok then
+                    if C == 0 then
+                        for i = 1, #results do Ug_T_buEIYwd_az_[A + i - 1] = results[i] end
+                        top = A + #results - 1
+                    else
+                        for i = 1, C - 1 do Ug_T_buEIYwd_az_[A + i - 1] = results[i] end
+                    end
+                else
+                    __LOG__('Call error: '..tostring(results))
+                end
+            end
+        elseif op == 29 then -- RETURN
+            if B == 0 then
+                local results = {}
+                for i = A, (top >= A and top or A) do results[#results+1] = Ug_T_buEIYwd_az_[i] end
+                return unpack(results)
+            elseif B == 1 then
+                return
+            else
+                local results = {}
+                for i = 1, B - 1 do results[i] = Ug_T_buEIYwd_az_[A + i - 1] end
+                return unpack(results, 1, B - 1)
+            end
+        elseif op == 30 then -- CLOSURE
+            local childP = kQyibM_Mhb_baiTXdGP[B + 1]
+            if childP then
+                local newUps = {}
+                for i, uvD in ipairs(childP.upvals or {}) do
+                    if uvD.instack then
+                        newUps[i] = {v = Ug_T_buEIYwd_az_[uvD.idx]}
+                    else
+                        newUps[i] = nzUBNVon_Zy___r[uvD.idx + 1] or {v = nil}
+                    end
+                end
+                Ug_T_buEIYwd_az_[A] = QEcPELe_A(childP, BF_nsa_Z, newUps)
+            else
+                Ug_T_buEIYwd_az_[A] = function() end
+            end
+        elseif op == 31 then -- VARARG
+            local va = zI_ZeHAH or {}
+            local n = B - 1
+            if B == 0 then n = #va end
+            for i = 1, n do Ug_T_buEIYwd_az_[A + i - 1] = va[i] end
+            if B == 0 then top = A + n - 1 end
+        elseif op == 32 then -- SELF
+            local tbl = Ug_T_buEIYwd_az_[B]
+            local key = RTLCEJdlyMlaYLUR[C + 1]
+            Ug_T_buEIYwd_az_[A + 1] = tbl
+            Ug_T_buEIYwd_az_[A] = tbl and tbl[key]
+        elseif op == 33 then -- FORPREP
+            local init = tonumber(Ug_T_buEIYwd_az_[A]) or 0
+            local step = tonumber(Ug_T_buEIYwd_az_[A + 2]) or 1
+            Ug_T_buEIYwd_az_[A] = init - step
+            YVpuQvjo_Lz = YVpuQvjo_Lz + B
+        elseif op == 34 then -- FORLOOP
+            local step = tonumber(Ug_T_buEIYwd_az_[A + 2]) or 1
+            local idx = (tonumber(Ug_T_buEIYwd_az_[A]) or 0) + step
+            local limit = tonumber(Ug_T_buEIYwd_az_[A + 1]) or 0
+            Ug_T_buEIYwd_az_[A] = idx
+            local cont = false
+            if step > 0 then cont = (idx <= limit) else cont = (idx >= limit) end
+            if cont then
+                Ug_T_buEIYwd_az_[A + 3] = idx
+                YVpuQvjo_Lz = YVpuQvjo_Lz + B
+            end
+        elseif op == 35 then -- TFORLOOP
+            local iter = Ug_T_buEIYwd_az_[A]
+            local state = Ug_T_buEIYwd_az_[A + 1]
+            local ctrl = Ug_T_buEIYwd_az_[A + 2]
+            if type(iter) == 'function' then
+                local ok, results = pcall(function() return {iter(state, ctrl)} end)
+                if ok then
+                    for i = 1, C do Ug_T_buEIYwd_az_[A + 2 + i] = results[i] end
+                    if results[1] ~= nil then
+                        Ug_T_buEIYwd_az_[A + 2] = results[1]
+                    else
+                        YVpuQvjo_Lz = YVpuQvjo_Lz + 1
+                    end
+                else
+                    YVpuQvjo_Lz = YVpuQvjo_Lz + 1
+                end
+            else
+                YVpuQvjo_Lz = YVpuQvjo_Lz + 1
+            end
+        elseif op == 36 then -- CLOSE
+            for i = #openups, 1, -1 do
+                local uv = openups[i]
+                if uv and uv.idx >= A then
+                    uv.v = Ug_T_buEIYwd_az_[uv.idx]
+                    uv.closed = true
+                    table.remove(openups, i)
+                end
+            end
+        elseif op == 37 then -- MOVE
+            Ug_T_buEIYwd_az_[A] = Ug_T_buEIYwd_az_[B]
+        elseif op == 38 then -- SETLIST
+            local tbl = Ug_T_buEIYwd_az_[A]
+            if tbl then
+                local offset = (C - 1) * 50
+                local n = B
+                if B == 0 then n = top - A end
+                if n < 0 then n = 0 end
+                for i = 1, n do tbl[offset + i] = Ug_T_buEIYwd_az_[A + i] end
+            end
+        end
+    end
+end
+
+local function TIe_ilvmyjr_F(bcS, cnS, mtS, cList, sd)
+    if not bcS or #bcS < 8 then __LOG__('Invalid bytecode string'); return nil end
+    local instructions = ndnf_BJT_XIB(bcS, VYgATyGJjnVe_uv, sd)
+    if not instructions then __LOG__('Failed to decode bytecode'); return nil end
+    local constants = JmqZtvUl_(cnS, VYgATyGJjnVe_uv, sd)
+
+    -- Decode metadata
+    local st = {Bde_yKB_ClGrvxv(sd, 4294967295)}
+    local pos = 1
+    local function rb()
+        local b = by_jmuWtId(mtS, pos) or 0
+        local d = cPjgM_h_Mqjj(b, pos-1, st, VYgATyGJjnVe_uv)
+        pos = pos + 1
+        return d
+    end
+
+    local numParams = rb()
+    local isVararg = rb() ~= 0
+    local maxStack = rb()
+    local numUps = rb()
+    local upvals = {}
+    for i = 1, numUps do
+        local inStack = rb() ~= 0
+        local idx = rb()
+        upvals[i] = {instack = inStack, idx = idx}
+    end
+
+    __LOG__('Proto: params='..numParams..', vararg='..tostring(isVararg)..', upvals='..numUps)
+
+    -- Build child protos
+    local childProtos = {}
+    for i, child in ipairs(cList or {}) do
+        childProtos[i] = TIe_ilvmyjr_F(child.b, child.c, child.m, {}, sd)
+    end
+
+    return {
+        code = instructions,
+        K = constants,
+        numParams = numParams,
+        isVararg = isVararg,
+        maxStack = maxStack,
+        protos = childProtos,
+        upvals = upvals
+    }
+end
+
+-- Entry Point
+__LOG__('DRK V3 VM Starting...')
+local BF_nsa_Z = _ENV or getfenv() or _G
+local mainProto = TIe_ilvmyjr_F(m_XRyXMh, Jpmgmwtkk, k_F__yOs__K__va_, avkmxKCAPFhETa, X_ukcMgfQX_pZNRSgrn)
+
+if not mainProto then
+    __LOG__('Failed to build main proto')
+    return function() end
+end
+
+__LOG__('Main proto built, creating wrapper...')
+local mainFunc = QEcPELe_A(mainProto, BF_nsa_Z, {})
+
+if type(mainFunc) ~= 'function' then
+    __LOG__('Wrapper creation failed')
+    return function() end
+end
+
+__LOG__('Executing protected script...')
+return mainFunc()
